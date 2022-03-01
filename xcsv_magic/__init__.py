@@ -7,7 +7,7 @@ def _jupyter_nbextension_paths():
             section="tree",
             src=os.path.join("nbextensions", "export"),
             dest="export",
-            require="export/export",
+            require="export/main",
         ),
     ]
     return paths
