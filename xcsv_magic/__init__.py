@@ -9,16 +9,7 @@ def _jupyter_nbextension_paths():
             dest="export",
             require="export/export",
         ),
-        """
-        dict(
-            section="tree",
-            src=os.path.join("nbextensions", "test"),
-            dest="test",
-            require="test/test",
-        ),
-        """,
     ]
-
     return paths
 
 
