@@ -9,15 +9,15 @@ for (dirname, dirnames, filenames) in os.walk("xcsv_magic/nbextensions"):
 
 static_files = []
 for (dirname, dirnames, filenames) in os.walk(
-    "xcsv_magic/server_extensions/formgrader/static"
+    "xcsv_magic/server_extensions/export_grades/static"
 ):
-    root = os.path.relpath(dirname, "xcsv_magic/server_extensions/formgrader")
+    root = os.path.relpath(dirname, "xcsv_magic/server_extensions/export_grades")
     for filename in filenames:
         static_files.append(os.path.join(root, filename))
 for (dirname, dirnames, filenames) in os.walk(
     "xcsv_magic/server_extensions/formgrader/templates"
 ):
-    root = os.path.relpath(dirname, "xcsv_magic/server_extensions/formgrader")
+    root = os.path.relpath(dirname, "xcsv_magic/server_extensions/export_grades")
     for filename in filenames:
         static_files.append(os.path.join(root, filename))
 

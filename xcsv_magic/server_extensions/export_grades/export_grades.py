@@ -1,11 +1,6 @@
 from notebook.utils import url_path_join as ujoin
-from e2xgrader.server_extensions.formgrader.formgrader import (
-    FormgradeExtension as E2xFormgrade,
-)
+
 from jinja2 import Environment, FileSystemLoader
-from nbgrader.server_extensions.formgrader import handlers as nbgrader_handlers
-from nbgrader.server_extensions.formgrader import apihandlers as nbgrader_apihandlers
-from e2xgrader.server_extensions.formgrader import handlers, apihandlers
 from tornado import web
 import os
 
@@ -70,7 +65,6 @@ class ExportGradesExtension(NbGrader):
                     web.StaticFileHandler,
                     {"path": handlers.static_path},
                 ),
-                (r"/formgrader/.*", nbgrader_handlers.Template404),
             ]
         )
 
