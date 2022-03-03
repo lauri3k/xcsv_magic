@@ -5,7 +5,6 @@ from tornado import web
 from traitlets import default
 import os
 
-from nbconvert.exporters import HTMLExporter as Eek
 from nbgrader.apps import NbGrader
 
 from . import handlers
@@ -13,6 +12,7 @@ from . import handlers
 
 class ExportGradesExtension(NbGrader):
     def init_tornado_settings(self, webapp):
+        self.log.info(handlers.template_path)
         jinja_env = Environment(
             loader=FileSystemLoader([handlers.template_path]),
             autoescape=True,

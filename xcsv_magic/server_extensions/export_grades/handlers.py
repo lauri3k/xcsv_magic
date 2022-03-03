@@ -53,15 +53,6 @@ class ExportGradesHandler(ExportHandler):
         self.write(html)
 
 
-"""
-class TestHandler(BaseHandler):
-    @web.authenticated
-    @check_xsrf
-    def get(self):
-        html = self.render("test.tpl")
-        self.write(html)
-"""
-
 root_path = os.path.dirname(__file__)
 template_path = os.path.join(root_path, "templates")
 static_path = os.path.join(root_path, "static")
@@ -69,5 +60,4 @@ static_path = os.path.join(root_path, "static")
 default_handlers = [
     (r"/export_grades/combine/?", ExportCombineHandler),
     (r"/export_grades/?", ExportGradesHandler),
-    # (r"/test/?", TestHandler),
 ]

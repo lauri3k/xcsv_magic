@@ -15,7 +15,7 @@ for (dirname, dirnames, filenames) in os.walk(
     for filename in filenames:
         static_files.append(os.path.join(root, filename))
 for (dirname, dirnames, filenames) in os.walk(
-    "xcsv_magic/server_extensions/formgrader/templates"
+    "xcsv_magic/server_extensions/export_grades/templates"
 ):
     root = os.path.relpath(dirname, "xcsv_magic/server_extensions/export_grades")
     for filename in filenames:
@@ -30,10 +30,11 @@ setup_args = dict(
     packages=find_packages(),
     package_data={
         "xcsv_magic": extension_files,
-        "xcsv_magic.server_extensions.formgrader": static_files,
+        "xcsv_magic.server_extensions.export_grades": static_files,
     },
     install_requires=["nbgrader", "e2xgrader"],
 )
 
 if __name__ == "__main__":
+    print(static_files)
     setup(**setup_args)
