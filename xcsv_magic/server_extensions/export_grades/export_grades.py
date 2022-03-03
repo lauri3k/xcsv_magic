@@ -90,5 +90,5 @@ def load_jupyter_server_extension(nbapp):
     formgrader = ExportGradesExtension(parent=nbapp)
     formgrader.log = nbapp.log
     formgrader.initialize([])
-    # formgrader.init_tornado_settings(webapp)
+    formgrader.init_tornado_settings(webapp)
     formgrader.init_handlers(webapp)
