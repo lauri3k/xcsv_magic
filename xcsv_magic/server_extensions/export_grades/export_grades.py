@@ -12,12 +12,6 @@ from . import handlers
 
 
 class ExportGradesExtension(NbGrader):
-    @default("classes")
-    def _classes_default(self):
-        classes = super(ExportGradesExtension, self)._classes_default()
-        classes.append(Eek)
-        return classes
-
     def init_tornado_settings(self, webapp):
         jinja_env = Environment(
             loader=FileSystemLoader([handlers.template_path]),
@@ -55,6 +49,6 @@ def load_jupyter_server_extension(nbapp):
     webapp = nbapp.web_app
     exportapp = ExportGradesExtension(parent=nbapp)
     exportapp.log = nbapp.log
-    # exportapp.initialize([])
+    exportapp.initialize([])
     exportapp.init_tornado_settings(webapp)
     exportapp.init_handlers(webapp)
