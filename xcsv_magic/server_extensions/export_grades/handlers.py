@@ -8,6 +8,12 @@ from nbgrader.server_extensions.formgrader.base import (
 from ...exporters import CsvExport
 
 
+class ExportHandler(BaseHandler):
+    def render(self, name, **ns):
+        template = self.settings["export_jinja2_env"].get_template(name)
+        return template.render(**ns)
+
+
 class ExportCombineHandler(BaseApiHandler):
     def initialize(self):
         self.__exporter = CsvExport()
@@ -39,7 +45,7 @@ class ExportCombineHandler(BaseApiHandler):
         self.finish()
 
 
-class ExportGradesHandler(BaseHandler):
+class ExportGradesHandler(ExportHandler):
     @web.authenticated
     @check_xsrf
     def get(self):
